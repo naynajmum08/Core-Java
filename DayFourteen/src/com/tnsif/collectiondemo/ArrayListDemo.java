@@ -3,7 +3,9 @@ package com.tnsif.collectiondemo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class ArrayListDemo {
 
@@ -52,11 +54,37 @@ public class ArrayListDemo {
 		names.add("Sanjivani");
 		names.add("Neha");
 		names.add("Sarika");
+		names.add("Mukta");
 		System.out.println(names);
 		
 		Collections.sort(names);
 		System.out.println(names);
-
+		
+		//Iterabel interface-transversing through the list
+		Iterator<String> str=names.iterator();
+		while(str.hasNext())
+		{
+			String i=str.next();
+			System.out.println("Fowrd output "+i);
+			if(i.equals("Neha"))
+				str.remove();
+			
+			
+		}
+		System.out.println("After removal of Neha "+names);
+		
+		
+		System.out.println("Backward list.....");
+		//ListIterator-backward direction
+		
+		ListIterator<String> strNew=names.listIterator(names.size());
+		while(strNew.hasPrevious())
+		{
+			String nm=strNew.previous();
+			System.out.println(nm);
+		}
+		
+		
 	}
 
 }
